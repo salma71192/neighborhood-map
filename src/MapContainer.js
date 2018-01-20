@@ -1,29 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {GoogleApiWrapper} from 'google-maps-react';
 import MapComp from './MapComp';
 import './App.css';
 
-class MapContainer extends Component {
-   initMap() {
-     if (this.props && this.props.google) {
-      // google is available
-      const {google} = this.props;
-      var uluru = {lat: -25.363, lng: 131.044};
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
-        center: uluru
-      });
-      var marker = new google.maps.Marker({
-        position: uluru,
-        map: map
-      });
-      }
-  }
-
+export class MapContainer extends React.Component {
   render() {
+
+    const style = {
+      width: '100vw',
+      height: '100vh'
+    }
+
     return (
-      <div className="map" id="map"></div>
+      <div style={style}>
+        <MapComp google={this.props.google} />
+      </div>
     )
   }
 }
 
-export default MapContainer;
+//export the container WITHIN the GoogleApiWrapper
+export default GoogleApiWrapper({
+  apiKey: "AIzaSyC9Ob33bdHROjuO63Zp1p93vJjYB0F_pRI"
+})(MapContainer)

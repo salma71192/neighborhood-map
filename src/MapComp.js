@@ -1,26 +1,41 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import './App.css';
 
 class MapComp extends Component {
-   initMap() {
-     if (this.props && this.props.google) {
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.google !== this.props.google) {
+      this.loadMap();
+    }
+  }
+
+  loadMap() {
+    if (this.props && this.props.google) {
       // google is available
       const {google} = this.props;
-      var uluru = {lat: -25.363, lng: 131.044};
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
-        center: uluru
-      });
-      var marker = new google.maps.Marker({
-        position: uluru,
-        map: map
-      });
-      }
+      const maps = google.maps;
+
+      const mapRef = this.refs.map;
+      const node = ReactDOM.findDOMNode(mapRef);
+
+      let zoom = 14;
+      let lat = 37.774929;
+      let lng = -122.419416;
+      const center = new maps.LatLng(lat, lng);
+      const mapConfig = Object.assign({}, {
+        center: center,
+        zoom: zoom
+      })
+      this.map = new maps.Map(node, mapConfig);
+    }
+    // ...
   }
 
   render() {
     return (
-      <div className="map" id="map"></div>
+      <div ref='map'>
+        Loading map...
+      </div>
     )
   }
 }
