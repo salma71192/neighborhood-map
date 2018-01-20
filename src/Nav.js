@@ -6,7 +6,7 @@ import './App.css';
 class Nav extends React.Component {
   state = {
     query: "",
-    placesNames: ["Delavija Sama Restaurants", "Genena Mall", "Hosny Restaurant", "Wonder Land", "McDonald", "City Stars"]
+    places: []
   }
 
   updateQuery = (e) => {
@@ -19,17 +19,18 @@ class Nav extends React.Component {
     })
   }
 
-  componentDidUpdate() {
-    console.log(this.state.query);
-
+  componentDidMount() {
+    this.setState({
+      places: Places
+    })
   }
 
   render() {
     var filterPlaces = [];
-    var tempPlaces = this.state.placesNames;
-    tempPlaces.forEach((placeName) => {
-      if(placeName.toLowerCase().indexOf(this.state.query) !== -1) {
-          filterPlaces.push(placeName);
+    var tempPlaces = this.state.places;
+    tempPlaces.forEach((place) => {
+      if(place.name.toLowerCase().indexOf(this.state.query) !== -1) {
+          filterPlaces.push(place.name);
         }
       });
     return (

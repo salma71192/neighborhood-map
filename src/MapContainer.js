@@ -6,7 +6,6 @@ import './App.css';
 export class MapContainer extends React.Component {
   state = {
         places: [],
-        placesNames: ["Delavija Sama Restaurants", "Genena Mall", "Hosny Restaurant", "Wonder Land", "McDonald", "City Stars"],
         showingInfoWindow: false,
         activeMarker: {},
         selectedPlace: {},
@@ -47,8 +46,8 @@ export class MapContainer extends React.Component {
           this.state.places.map((place, index) => {
             return(
               <Marker onClick={this.onMarkerClick}
-                      name={this.state.placesNames[index]}
-                      title={'Click to get information about ' + this.state.placesNames[index]}
+                      name={this.state.places[index].name}
+                      title={'Click to get information about ' + this.state.places[index].name}
                       position={this.state.places[index]}
                       key={index}
                        />
