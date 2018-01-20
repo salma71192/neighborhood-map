@@ -10,14 +10,28 @@ class Nav extends React.Component {
   }
 
   updateQuery = (e) => {
-    let newQuery = e.target.value;
+    this.handleSearch(e.target.value);
+  }
+
+  handleSearch = (newQuery) => {
     this.setState({
       query: newQuery
     })
+  }
+
+  componentDidUpdate() {
     console.log(this.state.query);
+
   }
 
   render() {
+    var filterPlaces = [];
+    var tempPlaces = this.state.placesNames;
+    tempPlaces.forEach((placeName) => {
+      if(placeName.toLowerCase().indexOf(this.state.query) !== -1) {
+          filterPlaces.push(placeName);
+        }
+      });
     return (
       <nav className="nav">
         <input
@@ -29,7 +43,7 @@ class Nav extends React.Component {
           onChange={this.updateQuery}
          />
          <ul className="listItems">
-          {this.state.placesNames.map((placeName, index) =>
+          {filterPlaces.map((placeName, index) =>
              <li key={index} className="listItem"><a href="#">{placeName}</a></li>)
           }
          </ul>
