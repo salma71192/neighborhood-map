@@ -23,6 +23,12 @@ export class MapContainer extends React.Component {
       activeMarker: marker,
       showingInfoWindow: true
     });
+    if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
+        } else {
+          marker.setAnimation(this.props.google.maps.Animation.DROP);
+        }
+
   }
 
   onMapClicked = (props) => {
@@ -37,7 +43,7 @@ export class MapContainer extends React.Component {
   render() {
     return (
       <Map google={this.props.google}
-          initialCenter={{lat: 30.0303311, lng: 31.284036}}
+          initialCenter={{lat: 30.0566282, lng: 31.3213528}}
           onClick={this.onMapClicked}
           style={{width: '100%', height: '100%', position: 'relative'}}
           className={'map'}
@@ -50,6 +56,9 @@ export class MapContainer extends React.Component {
                       title={'Click to get information about ' + this.state.places[index].name}
                       position={this.state.places[index]}
                       key={index}
+                      icon={{
+                        url: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/map-marker-64.png"
+                      }}
                        />
             )
           })
