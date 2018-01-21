@@ -1,10 +1,10 @@
 [
-  {"lat": 30.0303311, "lng": 31.284036, "name": "Delavija Sama Restaurants"},
-  {"lat": 30.0566282, "lng": 31.3213528, "name": "Genena Mall"},
-  {"lat": 30.056331, "lng": 31.3265885, "name": "Hosny Restaurant"},
-  {"lat": 30.0522079, "lng": 31.3302792, "name": "Wonder Land"},
-  {"lat": 30.0522079, "lng": 31.3302792, "name": "McDonald"},
-  {"lat": 30.0729836, "lng": 31.3416726, "name": "City Stars"},
-  {"lat": 30.0409731, "lng": 31.2630654, "name": "Al Azhar Park"},
-  {"lat": 0.058844, "lng": 31.3079463, "name": "Nasr City Sporting Club"}
+  {"lat": 30.0303311, "lng": 31.284036, "name": "Delavija Sama Restaurants", "id": "Delavija Sama Restaurants"},
+  {"lat": 30.0566282, "lng": 31.3213528, "name": "Genena Mall", "id": "Genena Mall"},
+  {"lat": 30.056331, "lng": 31.3265885, "name": "Hosny Restaurant", "id": "Hosny Restaurant"},
+  {"lat": 30.0522079, "lng": 31.3302792, "name": "Wonder Land", "id": "Wonder Land"},
+  {"lat": 30.0522079, "lng": 31.3302792, "name": "McDonald", "id": "McDonald"},
+  {"lat": 30.0729836, "lng": 31.3416726, "name": "City Stars", "id": "City Stars"},
+  {"lat": 30.0409731, "lng": 31.2630654, "name": "Al Azhar Park", "id": "Al Azhar Park"},
+  {"lat": 0.058844, "lng": 31.3079463, "name": "Nasr City Sporting Club", "id": "Nasr City Sporting Club"}
 ]
