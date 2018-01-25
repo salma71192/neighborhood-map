@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 
+
 class Nav extends React.Component {
     state = {
       query: ""
