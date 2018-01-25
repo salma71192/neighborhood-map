@@ -1,5 +1,6 @@
 import React from 'react';
 import {Map, Marker,InfoWindow, GoogleApiWrapper} from 'google-maps-react';
+import Nav from './Nav';
 import Places from './places.json';
 import './App.css';
 
@@ -40,6 +41,11 @@ export class MapContainer extends React.Component {
     }
   }
 
+  filterMarkers = (e) => {
+    e.preventDefault();
+    console.log(e.target.id);
+  }
+
   render() {
     return (
       <Map google={this.props.google}
@@ -48,17 +54,16 @@ export class MapContainer extends React.Component {
           style={{width: '100%', height: '100%', position: 'relative'}}
           className={'map'}
           zoom={13}>
+          <Nav places={this.state.places} onChange={this.filterMarkers}/>
         {
           this.state.places.map((place, index) => {
             return(
+
               <Marker onClick={this.onMarkerClick}
                       name={this.state.places[index].name}
                       title={'Click to get information about ' + this.state.places[index].name}
                       position={this.state.places[index]}
                       key={index}
-                      icon={{
-                        url: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/map-marker-64.png"
-                      }}
                        />
             )
           })
